@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { Pressable } from "react-native";
 import React from "react";
 import { View, StyleSheet, ScrollView, SafeAreaView } from "react-native";
@@ -5,13 +6,16 @@ import { View, StyleSheet, ScrollView, SafeAreaView } from "react-native";
 const Untitled1 = ({
   navigation
 }) => {
+  const Login = useSelector(state => state.Login);
   return <SafeAreaView style={styles.safeArea}>
         <ScrollView contentContainerStyle={{
       backgroundColor: '#f0f0f1',
       padding: 10,
       position: 'relative',
       flex: 1
-    }}><Pressable onPress={() => navigation.navigation.navigate("Untitled2", {})}><View style={styles.ZflAKgNu}></View></Pressable></ScrollView>
+    }}><Pressable onPress={() => navigation.navigation.navigate("Untitled2", {
+        "email": Login.email
+      })}><View style={styles.ZflAKgNu}></View></Pressable></ScrollView>
     </SafeAreaView>;
 };
 
